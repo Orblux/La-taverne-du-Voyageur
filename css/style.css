@@ -60,6 +60,7 @@ h6 {
 h1 span,
 h2 span,
 h3 span,
+p span,
 h4 span {
 	color: #339BEB;
 }
@@ -152,9 +153,10 @@ blockquote {
 	z-index: 2;
 }
 .subfooter {
-	background-color: #fafafa;
-	border-top: 1px solid #f3f3f3;
-	border-bottom: 1px solid #f3f3f3;
+	background-color: #39342d;
+	color: #7b7368;
+	border-top: 1px solid #39342d;
+	border-bottom: 1px solid #39342d;
 	padding: 40px 0;
 }
 .section {
