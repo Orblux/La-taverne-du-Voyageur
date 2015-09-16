@@ -61,16 +61,16 @@ h1 span,
 h2 span,
 h3 span,
 h4 span {
-	color: #339BEB;
+	color: #cf0a28;
 }
 .text-colored {
-	color: #55acee;
+	color: #d00514;
 }
 a {
-	color: #55acee;
+	color: #d00514;
 }
 a:hover {
-	color: #339BEB;
+	color: #cf0a28;
 }
 a:focus,
 a:active {
@@ -115,8 +115,8 @@ blockquote {
 /* Layout
 ----------------------------------------------------------------------------- */
 .header {
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.10);
+	color: #960514;
+	background-color: rgba(245, 244, 239, 0.10);
 	padding: 10px 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -152,7 +152,7 @@ blockquote {
 	z-index: 2;
 }
 .subfooter {
-	background-color: #fafafa;
+	background-color: #f5f5f0;
 	border-top: 1px solid #f3f3f3;
 	border-bottom: 1px solid #f3f3f3;
 	padding: 40px 0;
@@ -168,8 +168,8 @@ blockquote {
 	background-color: #222222;
 	color: #ffffff;
 }
-.default-bg.blue {
-	background-color: #55acee;
+.default-bg.red {
+	background-color: #d00514;
 }
 .translucent-bg {
 	color: #ffffff;
@@ -225,8 +225,8 @@ blockquote {
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
 }
-.translucent-bg.blue:after {
-	background-color: rgba(85, 172, 238, 0.7);
+.translucent-bg.red:after {
+	background-color: rgba(160, 67, 57, 0.7);
 }
 .translucent-bg .container {
 	z-index: 3;
@@ -311,13 +311,13 @@ blockquote {
 	transition: all 0.2s ease-in-out;
 }
 .btn-default {
-	color: #55acee;
+	color: #d00514;
 	border: 1px solid #cccccc;
 }
 .btn-default:hover {
 	color: #ffffff;
-	background-color: #339BEB;
-	border-color: #339BEB;
+	background-color: #cf0a28;
+	border-color: #cf0a28;
 }
 
 /* Collapse
@@ -348,7 +348,7 @@ blockquote {
 	padding: 12px 35px 12px 15px;
 	display: inline-block;
 	width: 100%;
-	background-color: #55acee;
+	background-color: #d00514;
 	color: #ffffff;
 	position: relative;
 	text-decoration: none;
@@ -373,7 +373,7 @@ blockquote {
 }
 .panel-heading a:hover {
 	text-decoration: none;
-	background-color: #55acee;
+	background-color: #d00514;
 	color: #ffffff;
 }
 .panel-title a i {
@@ -387,8 +387,8 @@ blockquote {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus,
 .nav-pills > li > a:hover {
-	background-color: #55acee;
-	border-color: #55acee;
+	background-color: #d00514;
+	border-color: #d00514;
 	color: #ffffff;
 }
 .nav-pills > li > a {
@@ -427,7 +427,7 @@ textarea {
 	border-radius: 0px;
 }
 .modal-header {
-	background-color: #55acee;
+	background-color: #d00514;
 	color: #ffffff;
 }
 .modal-header h4 {
@@ -469,18 +469,18 @@ textarea {
 	border: none;
 }
 .main-navigation .navbar-default .navbar-nav > li > a {
-	color: #fff;
+	color: #480514;
 	padding: 10px 20px;
 	font-size: 18px;
 	font-weight: 300;
 }
 .main-navigation .navbar-default .navbar-nav > li.active > a {
 	background-color: transparent;
-	color: #55acee;
+	color: #d00514;
 }
 .main-navigation .navbar-default .navbar-nav > li > a:hover,
 .main-navigation .navbar-default .navbar-nav > li.active > a:hover {
-	color: #55acee;
+	color: #d00514;
 }
 @media (min-width:768px) {
 	.main-navigation .navbar-default .navbar-nav > li > a {
@@ -511,7 +511,7 @@ textarea {
 /* Fixed Header
 ----------------------------------------------------------------------------- */
 .fixed-header-on .header {
-	background-color: rgba(0, 0, 0, 0.95);
+	background-color: rgba(245, 244, 239, 0.95);
 	padding: 5px 0;
 }
 .fixed-header-on .site-name {
@@ -562,7 +562,7 @@ textarea {
 	transition: all 0.3s ease-in-out;
 }
 .site-name a {
-	color: #ffffff;
+	color: #960514;
 }
 .site-name a:hover {
 	text-decoration: none;
@@ -598,7 +598,7 @@ textarea {
 	transition: all 0.2s ease-in-out;
 }
 .social-links li.twitter a:hover {
-	color: #55acee;
+	color: #d00514;
 }
 .social-links li.skype a:hover {
 	color: #00aff0;
