@@ -117,7 +117,7 @@ blockquote {
 ----------------------------------------------------------------------------- */
 .header {
 	color: #960514;
-	background-color: rgba(245, 244, 239, 0.10);
+	background-color: rgba(245, 244, 239, 0.50);
 	padding: 10px 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
