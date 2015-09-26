@@ -36,9 +36,11 @@ h6 {
 	color: #333333;
 }
 h0 {
-	font-size: 42px;
-	font-weight: 700;.
+	font-size: 60px;
+	font-weight: 800;
 	margin-bottom: 20px;
+	text-align: center;
+	text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
 }
 h1 {
 	font-size: 38px;
@@ -64,6 +66,7 @@ h5 {
 h6 {
 	font-weight: 700;
 }
+h0 span,
 h1 span,
 h2 span,
 h3 span,
@@ -182,12 +185,14 @@ blockquote {
 .translucent-bg {
 	color: #ffffff;
 }
+.default-bg h0,
 .default-bg h1,
 .default-bg h2,
 .default-bg h3,
 .default-bg h4,
 .default-bg h5,
 .default-bg h6,
+.translucent-bg h0,
 .translucent-bg h1,
 .translucent-bg h2,
 .translucent-bg h3,
@@ -285,6 +290,7 @@ blockquote {
 
 /* Sections
 ----------------------------------------------------------------------------- */
+.banner-caption h0,
 .banner-caption h1,
 .banner-caption h2,
 .banner-caption h3,
