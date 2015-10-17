@@ -7,3 +7,13 @@ Created:November 2014
 License: Creative Commons Attribution 3.0 License (https://creativecommons.org/licenses/by/3.0/)
 File Description: Place here your custom CSS styles
 */
+
+/* Google Map
+----------------------------------------------------------------------------- */
+
+#map-container-restaurant { 
+	height: 300px 
+}
+#map-container-chambres { 
+	height: 300px 
+}
