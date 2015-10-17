@@ -32,7 +32,8 @@
 		<link href="css/style.css" rel="stylesheet">
 
 		<!-- Custom css --> 
-		<link href="css/custom.css" rel="stylesheet">
+		<link href="css/custom.css" rel="stylesheet">		
+		
 	</head>
 
 	<body class="no-trans fixed-header-on">
@@ -123,8 +124,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1 id="about" class="title text-center">Une <span>Taverne</span> de passage et de repos</h1>
-						<h2 class="lead text-center">Emoustillez vos papilles avec nos fleurons de la gastronomie française !</h2>
+						<h1 id="about" class="title text-center">La <span>Taverne</span> du voyageur, un lieu de détente offrant un bon repas et du repos aux voyageurs</h1>
+						<div class="space"></div>
+						<h2 class="lead text-center">C'est dans la campagne auvergnate que vous trouverez notre chaleureux restaurant, cuisine de terroir et douceur de vivre vous accompagnerons lors de votre venue chez nous !</h2>
 						<div class="space"></div>
 						<div class="row">
 							<div class="col-md-6">
@@ -132,14 +134,14 @@
 								<div class="space"></div>
 							</div>
 							<div class="col-md-6">
-								<p>	Nous vous accueuillons dans notre restaurant : <i>La taverne du voyageur</i> toute la semaine du lundi au samedi de 11h à 23h dans une ambiance conviviale! Restaurant typique de la région nous vous proposerons différents mets du terroir locale avec une carte  variant au fil des saisons avec des produits frais des producteurs locaux. Vous y trouverez donc :</p>
+								<p>Nous vous accueuillons dans notre restaurant : <i>La Taverne du Voyageur</i>, toute la semaine du lundi au samedi de 11h à 23h dans une ambiance conviviale ! Restaurant typique de la région, nous vous proposerons différents mets du terroir local avec une carte variant au fil des saisons. Par ailleurs, nous mettons un point d'honneur à valoriser les produits frais des producteurs locaux ! Vous y trouverez donc :</p>
 								<ul class="list-unstyled">
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Des mets d'une grande qualité</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Un service rapide et efficace</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Une grande convivialité</li>
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Et surtout de quoi apaiser votre faim!</li>
+									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Et surtout, de quoi apaiser votre faim !</li>
 								</ul>
-								<p>Vous trouverez donc chez nous de quoi vous régaler et prendre plaisir à notre table. Que ce soit en famille ou en solitaire, pour le travail ou les vacances vous ne serez pas déçu d'être passer par la <i>taverne du voyageur!!</i></p>								
+								<p>Vous trouverez donc chez nous de quoi vous régaler et prendre plaisir à notre table. Que ce soit en famille ou en solitaire, pour le travail ou les vacances vous ne serez pas déçu d'être passé par <i>La Taverne du Voyageur</i> !</p>								
 							</div>
 						</div>					
 					</div>
@@ -524,6 +526,7 @@
 									<li><i class="fa fa-phone pr-10"></i>+334.71.66.72.30</li>									
 									<li><i class="fa fa-envelope-o pr-10"></i>lataverneduvoyageur@ovh.org</li>
 								</ul>
+								<div id="map-container-restaurant"></div>
 								<!--ul class="social-links">
 									<li class="facebook"><a target="_blank" href="https://www.facebook.com/pages/HtmlCoder/714570988650168"><i class="fa fa-facebook"></i></a></li>
 									<li class="twitter"><a target="_blank" href="https://twitter.com/HtmlcoderMe"><i class="fa fa-twitter"></i></a></li>
@@ -534,7 +537,7 @@
 									<li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
 									<li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
 								</ul-->
-							</div>
+							</div>							
 						</div>
 						<div class="col-sm-6">
 							<div class="footer-content">
@@ -602,6 +605,10 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-
+		
+		<!-- Google Map API -->
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script>google.maps.event.addDomListener(window, 'load', init_map_restaurant);</script>
+		
 	</body>
 </html>
