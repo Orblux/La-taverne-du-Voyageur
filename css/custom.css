@@ -271,3 +271,13 @@ File Description: Place here your custom CSS styles
 	background-color: #ffffff;
 	border-color: #cccccc;
 }
+@media (max-width: 767px) {
+  .modal-height {
+    .modal-sm;
+  }
+}
+@media (min-width: 768px) {
+  .modal-height {
+    width: 40%;
+  }
+}

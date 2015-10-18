@@ -1,12 +1,33 @@
 <!-- Modale -->
 <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-20">
-        <div class="modal-content">
+    <div class="modal-dialog modal-height">
+        <div class="modal-content">			
             <div class="modal-header">
                 <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Login</h4>
             </div>
 			<form class="form-signin" action="login.php" method="post" id="login-form">
+				<input type="hidden" name="login" value=TRUE />
+				<input type="hidden" name="current_page" <?php
+				if($current_page == "hotellerie")
+				{	
+					?>
+					value="hotellerie" />
+					<?php
+				}
+				elseif($current_page == "restauration")
+				{
+					?>
+					value="restauration" />
+					<?php
+				}
+				else
+				{
+					?>
+					value="error" />
+					<?php
+				}
+				?>
 				<div class="modal-body">              
 					<h2 class="form-signin-heading">Connexion</h2>
 					<label for="inputID" class="sr-only">ID</label>
@@ -15,7 +36,7 @@
 					<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
 					<div class="checkbox">
 						<label>
-							<input name="checkbox" type="checkbox" value="remember-me"> Se souvenir de moi
+							<input name="remember" type="checkbox" value="remember-me"> Se souvenir de moi
 						</label>
 					</div>	
 				</div>
@@ -31,6 +52,18 @@
 <!-- header start -->
 <!-- ================ --> 
 <header class="header fixed clearfix navbar navbar-fixed-top">
+	<div>
+		<?php if(array_key_exists('log_errors',$_SESSION)): ?>
+			<div class="alert alert-danger text-center">
+				<?= implode('<br>', $_SESSION['log_errors']); ?>
+			</div>
+		<?php endif; ?>
+		<?php if(array_key_exists('log_success',$_SESSION)): ?>
+			<div class="alert alert-success text-center">
+				<?= implode('<br>', $_SESSION['log_success']); ?>
+			</div>
+		<?php endif; ?>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -132,3 +165,8 @@
 	</div>
 </header>
 <!-- header end -->
+<?php
+	unset($_SESSION['inputs']); // on nettoie les données précédentes
+	unset($_SESSION['log_success']);
+	unset($_SESSION['log_errors']);
+?>
