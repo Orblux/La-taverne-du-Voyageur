@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php
+	session_start();//on démarre la session
+	$current_page = "hotellerie";
+?>
+
+<!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -42,79 +47,9 @@
 
 		<!-- header start -->
 		<!-- ================ --> 
-		<header class="header fixed clearfix navbar navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-
-						<!-- header-left start -->
-						<!-- ================ -->
-						<div class="header-left clearfix">
-
-							<!-- logo -->
-							<div class="logo smooth-scroll">
-								<a href="index.html"><img id="logo" src="images/logo.png" alt="Worthy"></a>
-							</div>
-
-							<!-- name-and-slogan -->
-							<!-- A VOIR...
-							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">La taverne du Voyageur</a></div>
-								<div class="site-slogan">Chambres d'hôtes & restauration</div>
-							</div> -->
-
-						</div>
-						<!-- header-left end -->
-
-					</div>
-					<div class="col-md-8">
-
-						<!-- header-right start -->
-						<!-- ================ -->
-						<div class="header-right clearfix">
-
-							<!-- main-navigation start -->
-							<!-- ================ -->
-							<div class="main-navigation animated">
-
-								<!-- navbar start -->
-								<!-- ================ -->
-								<nav class="navbar navbar-default" role="navigation">
-									<div class="container-fluid">
-
-										<!-- Toggle get grouped for better mobile display -->
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
-
-										<!-- Collect the nav links, forms, and other content for toggling -->
-										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<li class="active"><a href="index.html">Présentation</a></li>
-												<li><a href="restauration.html">Restauration</a></li>
-												<li><a href="#hotellerie">Hôtellerie</a></li>
-											</ul>
-										</div>
-
-									</div>
-								</nav>
-								<!-- navbar end -->
-
-							</div>
-							<!-- main-navigation end -->
-
-						</div>
-						<!-- header-right end -->
-
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php			
+			include("header.php");
+		?>
 		<!-- header end -->
 
 		<!-- footer start -->
@@ -156,43 +91,19 @@
 					<div class="row">
 						<p><br></p>
 					</div>
-					<div class="row">
-						<div class="footer-content col-sm-6 col-sm-offset-3">
-							<form role="form" id="footer-form">
-								<div class="form-group has-feedback">
-									<label class="sr-only" for="name2">Name</label>
-									<input type="text" class="form-control" id="name2" placeholder="Nom" name="name2" required>
-									<i class="fa fa-user form-control-feedback"></i>
-								</div>
-								<div class="form-group has-feedback">
-									<label class="sr-only" for="email2">Email address</label>
-									<input type="email" class="form-control" id="email2" placeholder="Adresse mail" name="email2" required>
-									<i class="fa fa-envelope form-control-feedback"></i>
-								</div>
-								<div class="form-group has-feedback">
-									<label class="sr-only" for="message2">Message</label>
-									<textarea class="form-control" rows="8" id="message2" placeholder="Message" name="message2" required></textarea>
-									<i class="fa fa-pencil form-control-feedback"></i>
-								</div>
-								<input type="submit" value="Send" class="btn btn-default">
-							</form>
-						</div>
-					</div>
+					<!-- Formulaire de contact -->
+					<?php
+						include("contact.php");
+					?>
 				</div>
 			</div>
 			<!-- .footer end -->
 
 			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center">Copyright @ 2014 Worthy by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- ================ -->			
+			<?php 
+				include("footer.php");
+			?>
 			<!-- .subfooter end -->
 
 		</footer>

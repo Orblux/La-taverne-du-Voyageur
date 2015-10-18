@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php
+	session_start();//on démarre la session
+	$current_page = "index";
+?>
+
+<!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -42,80 +47,9 @@
 
 		<!-- header start -->
 		<!-- ================ --> 
-		<header class="header fixed clearfix navbar navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-
-						<!-- header-left start -->
-						<!-- ================ -->
-						<div class="header-left clearfix">
-
-							<!-- logo -->
-							<div class="logo smooth-scroll">
-								<a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
-							</div>
-
-							<!-- name-and-slogan -->
-							<!-- A VOIR...
-							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">La taverne du Voyageur</a></div>
-								<div class="site-slogan">Chambres d'hôtes & restauration</div>
-							</div> -->
-
-						</div>
-						<!-- header-left end -->
-
-					</div>
-
-					<div class="col-md-8">
-
-						<!-- header-right start -->
-						<!-- ================ -->
-						<div class="header-right clearfix">
-
-							<!-- main-navigation start -->
-							<!-- ================ -->
-							<div class="main-navigation animated">
-
-								<!-- navbar start -->
-								<!-- ================ -->
-								<nav class="navbar navbar-default" role="navigation">
-									<div class="container-fluid">
-
-										<!-- Toggle get grouped for better mobile display -->
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
-
-										<!-- Collect the nav links, forms, and other content for toggling -->
-										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<li class="active"><a href="#banner">Présentation</a></li>
-												<li><a href="restauration.html">Restauration</a></li>
-												<li><a href="hotellerie.html">Hôtellerie</a></li>
-											</ul>
-										</div>
-
-									</div>
-								</nav>
-								<!-- navbar end -->
-
-							</div>
-							<!-- main-navigation end -->
-
-						</div>
-						<!-- header-right end -->
-
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php			
+			include("header.php");
+		?>		
 		<!-- header end -->
 
 		<!-- banner start -->
@@ -125,8 +59,8 @@
 			<div class="banner-caption">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h0 class="text-center"><i><span>La Taverne du Voyageur</span></i></h0>
+						<div class="col-md-12 center-block text-center object-non-visible" data-animation-effect="fadeIn">
+							<h0 class="text-center"><i><span>La Taverne du Voyageur</i></span></h0>
 							<h2 class="text-center">Une restauration typique de la région Auvergnate</h2>
 						</div>
 					</div>
@@ -237,16 +171,10 @@
 		<footer id="footer">
 
 			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center">Copyright © 2014 Worthy by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- ================ -->			
+			<?php 
+				include("footer.php");
+			?>
 			<!-- .subfooter end -->
 
 		</footer>
@@ -276,6 +204,6 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-
+		
 	</body>
 </html>
