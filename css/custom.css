@@ -260,3 +260,14 @@ File Description: Place here your custom CSS styles
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
 }
+.btn-inverse {
+	color: #ffffff;
+	border: 1px solid;
+	background-color: #cf0a28;
+	border-color: #cf0a28;
+}
+.btn-inverse:hover {
+	color: #d00514;
+	background-color: #ffffff;
+	border-color: #cccccc;
+}

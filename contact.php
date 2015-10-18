@@ -29,7 +29,7 @@
 				</div>
 			<?php endif; ?>
 		</div>
-		<form action="sendto.php?" method="post" id="footer-form">
+		<form action="sendto.php" method="post" id="footer-form">
 			<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
 				{	
@@ -75,7 +75,7 @@
 				<input type="checkbox" name="antispam" id="checkspam">Je suis un spammer et je l'assume !
 				</label>
 			</div>
-			<input type="submit" value="Send" class="btn btn-default">
+			<input type="submit" value="Envoyer" class="btn btn-default">
 		</form>
 	</div>
 </div>
