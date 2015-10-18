@@ -1,20 +1,29 @@
 <!-- Modale -->
-<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-20">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Admin Login page</h4>
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Login</h4>
             </div>
-            <div class="modal-body">
-                <?php
-					include("contact.php");
-				?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dafault"><i class="fa fa-check icon-lg"></i> Valider</button>
-                <button type="button" class="btn btn-inverse" data-dismiss="modal"><i class="fa fa-times icon-lg"></i> Fermer</button>
-            </div>
+			<form class="form-signin" action="login.php" method="post" id="login-form">
+				<div class="modal-body">              
+					<h2 class="form-signin-heading">Connexion</h2>
+					<label for="inputID" class="sr-only">ID</label>
+					<input type="ID" name="inputID" id="inputID" class="form-control" placeholder="Identifiant" required autofocus>
+					<label for="inputPassword" class="sr-only">Mot de passe</label>
+					<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+					<div class="checkbox">
+						<label>
+							<input name="checkbox" type="checkbox" value="remember-me"> Se souvenir de moi
+						</label>
+					</div>	
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" type="submit"><i class="fa fa-check icon-lg"></i> Valider</button>
+					<button class="btn btn-default btn-inverse" type="button" data-dismiss="modal"><i class="fa fa-times icon-lg"></i> Fermer</button>
+				</div>
+			</form>
         </div>
     </div>
 </div>
