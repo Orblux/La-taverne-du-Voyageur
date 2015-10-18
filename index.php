@@ -1,6 +1,8 @@
 ﻿<?php
 	session_start();//on démarre la session
 	$current_page = "index";
+	
+	include("session.php");
 ?>
 
 <!DOCTYPE html>

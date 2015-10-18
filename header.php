@@ -1,4 +1,4 @@
-<!-- Modale -->
+<!-- Modale Login -->
 <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-height">
         <div class="modal-content">			
@@ -7,7 +7,7 @@
                 <h4 class="modal-title">Login</h4>
             </div>
 			<form class="form-signin" action="login.php" method="post" id="login-form">
-				<input type="hidden" name="login" value=TRUE />
+				<input type="hidden" name="login" value=FALSE />
 				<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
 				{	
@@ -47,6 +47,46 @@
 			</form>
         </div>
     </div>
+</div>
+
+<!-- Modale Logout -->
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-height">
+        <div class="modal-content">			
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Logout</h4>
+            </div>
+			<form class="form-signin" action="login.php" method="post" id="login-form">
+				<input type="hidden" name="logout" value=FALSE />
+				<input type="hidden" name="current_page" <?php
+				if($current_page == "hotellerie")
+				{	
+					?>
+					value="hotellerie" />
+					<?php
+				}
+				elseif($current_page == "restauration")
+				{
+					?>
+					value="restauration" />
+					<?php
+				}
+				else
+				{
+					?>							
+					value="error" />
+					<?php
+				}
+				?>
+				<div class="modal-body"> Voulez-vous vraiment vous déconnecter ? </div>					
+				<div class="modal-footer">
+					<button class="btn btn-default" type="submit"><i class="fa fa-check icon-lg"></i> Valider</button>
+					<button class="btn btn-default btn-inverse" type="button" data-dismiss="modal"><i class="fa fa-times icon-lg"></i> Fermer</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 
 <!-- header start -->
@@ -143,9 +183,32 @@
 										}
 									?>
 									
-										<!-- Login boutton -->
-										<!-- Lien de déclanchement de la modale -->									
-										<li><a data-toggle="modal" data-target="#Login" class="btn btn-lg btn-link"><i class="fa fa-sign-in"></i> Login</a></li>
+										<!-- Login/logout boutton -->
+										<!-- Lien de déclenchement de la modale -->
+										<?php
+											if(isset($_SESSION['login']))
+											{
+												if($_SESSION['login'] == TRUE)
+												{
+													?>
+													<li><a data-toggle="modal" data-target="#Logout" class="btn btn-lg btn-link"><i class="fa fa-sign-out"></i> Logout</a></li>
+													<?php
+													
+												}
+												else
+												{
+													?>										
+													<li><a data-toggle="modal" data-target="#Login" class="btn btn-lg btn-link"><i class="fa fa-sign-in"></i> Login</a></li>
+													<?php
+												}
+											}
+											else
+											{
+												?>
+												<li><a data-toggle="modal" data-target="#Login" class="btn btn-lg btn-link"><i class="fa fa-sign-in"></i> Login</a></li>
+												<?php
+											}
+										?>
 									</ul>								
 																	
 								</div>
