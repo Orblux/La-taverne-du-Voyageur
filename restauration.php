@@ -443,9 +443,11 @@
 						</div>											
 					</div>
 				</div>
-			</div>
+			</div>			
 		</div>
 		<!-- section end -->		
+		
+		
 		<!-- footer start -->
 		<!-- ================ -->
 		<footer id="footer">

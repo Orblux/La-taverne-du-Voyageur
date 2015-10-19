@@ -107,34 +107,47 @@
 							</div>
 							<div class="col-md-6">
 								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOne">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-													Automne 2015
-												</a>
-											</h4>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-											<div class="panel-body">
-												Pour l'automne nous vous proposons de nouveaux plats inédits pour votre plus grand plaisir. Issu directement des producteurs locaux vous pourrez venir goûter ces mets cuisinés par notre cuisinier dans des recettes typiques.
+									
+									<!-- News system -->
+									<?php
+										include("mysql.php");
+										$req = $bdd->prepare('SELECT * FROM news ORDER BY id DESC LIMIT 3');
+										$req->execute();
+
+										while($data = $req->fetch())
+										{
+											?>
+											<div class="panel panel-default">
+												<div class="panel-heading" role="tab" id="heading<?php echo $data['id']; ?>">
+													<h4 class="panel-title">
+														<a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $data['id']; ?>" aria-expanded="true" aria-controls="<?php echo $data['id']; ?>">
+															<?php echo $data['titre']; ?>
+														</a>
+													</h4>
+												</div>
+												<div id="<?php echo $data['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $data['id']; ?>">
+													<div class="panel-body">
+														<?php echo $data['contenu']; ?>
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingTwo">
-											<h4 class="panel-title">
-												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-													Noël et le Nouvel An
-												</a>
-											</h4>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-											<div class="panel-body">
-												Pour ces occasions nous vous proposons deux événements inédits, n'hésitez pas à suivre notre actualité pour en savoir plus dans les mois à venir.
-											</div>
-										</div>
-									</div>									
+											<?php
+										}
+										$req->closeCursor(); // Termine le traitement de la requête
+									?>
+									
+									<!-- Autorise l'édition si Admin -->
+									<!-- ----------------------------------------------------------------------- -->
+									<?php
+										if(isset($_SESSION['allowmodif']))
+										{
+											if($_SESSION['allowmodif'] == TRUE)
+											{
+												include("news.php");
+											}
+										}
+									?>
+									<!-- ----------------------------------------------------------------------- -->
 								</div>
 							</div>
 					    </div>

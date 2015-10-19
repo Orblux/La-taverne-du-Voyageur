@@ -1,5 +1,5 @@
 <!-- Modale Login -->
-<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog modal-height">
         <div class="modal-content">			
             <div class="modal-header">
@@ -50,7 +50,7 @@
 </div>
 
 <!-- Modale Logout -->
-<div class="modal fade" id="Logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog" aria-labelledby="Logout" aria-hidden="true">
     <div class="modal-dialog modal-height">
         <div class="modal-content">			
             <div class="modal-header">
