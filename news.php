@@ -43,8 +43,29 @@
                 <h4 class="modal-title">Editeur de news</h4>
             </div>
 			<form role="form" class="form-signin" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" id="login-form">
+				<p class="text-center">Quel news voulez-vous éditer ? <br></p>
 				<input type="hidden" name="newsChange" value="edit">
-				<div class="modal-body">         
+				<div class="modal-body">
+					<div class="form-group">
+						<select name="news_to_edit" class="form-control">
+							<?php
+								include("mysql.php");
+								$req = $bdd->prepare('SELECT id, titre FROM news');
+								$req->execute();
+								
+								while($data = $req->fetch())
+								{
+									?>
+									<option value=<?php echo $data['id']; ?>>
+										<?php echo $data['titre']; ?>
+									</option>
+									<?php
+								}
+							
+								$req->closeCursor(); // Termine le traitement de la requête
+								?>							
+						</select>
+					</div>
 					<div class="form-group has-feedback">
 						<label class="sr-only" for="inputname">Auteur</label>
 						<input type="text" name="name" class="form-control" id="inputname" placeholder="Nom" value="<?php echo isset($_SESSION['ID'])? $_SESSION['ID'] : ''; ?>" required>
@@ -59,7 +80,7 @@
 						<label class="sr-only" for="inputcontent">News</label>
 						<textarea required type="content" name="content" rows="8" class="form-control" id="inputcontent" placeholder="News" value="<?php echo isset($_SESSION['inputs']['content'])? $_SESSION['inputs']['content'] : ''; ?>" required></textarea>
 						<i class="fa fa-comment-o form-control-feedback"></i>
-					</div>														
+					</div>													
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-default" type="submit"><i class="fa fa-check icon-lg"></i> Valider</button>
@@ -178,7 +199,7 @@
 						$log_success['news_add'] = "Votre news a été ajoutée avec succès !";
 						$_SESSION['log_success'] = $log_success;
 						
-						$req->closeCursor(); // Termine le traitement de la requête
+						$req->closeCursor(); // Termine le traitement de la requête						
 					}
 				}
 				
@@ -186,7 +207,53 @@
 				//Autorise l'édition si tag edit ET modif OK !
 				if($_POST['newsChange'] == "edit" && $_SESSION['allowmodif'] == TRUE)
 				{
+					if(!array_key_exists('news_to_edit', $_POST) || $_POST['news_to_edit'] == '') 
+					{
+						$log_errors ['news_to_edit'] = "Vous n'avez pas choisi de news à éditer !";
+					}
 					
+					if(!array_key_exists('name', $_POST) || $_POST['name'] == '')
+					{
+						$log_errors ['name'] = "Vous n'avez pas saisi de nom d'auteur !";
+					}
+					
+					if(!array_key_exists('title', $_POST) || $_POST['title'] == '') 
+					{
+						$log_errors ['title'] = "Vous n'avez pas saisi de titre !";
+					}
+					
+					if(!array_key_exists('content', $_POST) || $_POST['content'] == '') 
+					{
+						$log_errors ['content'] = "Vous n'avez pas saisi de contenu pour la news !";
+					}
+					
+					//On check les infos transmises lors de la validation
+					if(!empty($log_errors))
+					{ // si erreur on renvoie vers la page précédente
+						$_SESSION['log_errors'] = $log_errors;//on stocke les erreurs
+						$_SESSION['inputs'] = $_POST;
+					}
+					else
+					{	
+						include("mysql.php");
+						
+						$ID = $_POST["news_to_edit"];						
+						$name = sha1(htmlspecialchars($_POST["name"]));						
+						$title = htmlspecialchars($_POST["title"]);
+						$content = htmlspecialchars($_POST["content"]);						
+						
+						$req = $bdd->prepare('UPDATE news SET auteur = :name, titre = :title, contenu = :content WHERE id = :ID');
+						$req->execute(array(
+							'name' => $name,
+							'title' => $title,
+							'content' => $content,
+							'ID' => $ID));
+						
+						$log_success['news_edit'] = "Votre news a été éditée avec succès !";
+						$_SESSION['log_success'] = $log_success;
+						
+						$req->closeCursor(); // Termine le traitement de la requête						
+					}					
 				}
 				
 				//-------------------------------------------------------------------------
@@ -222,8 +289,10 @@
 
 						$req->closeCursor(); // Termine le traitement de la requête
 												
-						$log_success['news_add'] = "Votre news a été ajoutée avec succès !";
-						$_SESSION['log_success'] = $log_success;				
+						$log_success['news_add'] = "Votre news a été supprimée avec succès !";
+						$_SESSION['log_success'] = $log_success;
+
+						$req->closeCursor(); // Termine le traitement de la requête
 					}
 				}									
 			}

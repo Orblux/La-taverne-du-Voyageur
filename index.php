@@ -146,8 +146,8 @@
 										{
 											if($_SESSION['allowmodif'] == TRUE)
 											{
-												include("error.php");
 												include("news.php");
+												include("error.php");
 												unset($_SESSION['inputs']); // on nettoie les données précédentes
 												unset($_SESSION['log_success']);
 												unset($_SESSION['log_errors']);

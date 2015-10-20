@@ -30,10 +30,16 @@
 				?>
 				<div class="modal-body">              
 					<h2 class="form-signin-heading">Connexion</h2>
-					<label for="inputID" class="sr-only">ID</label>
-					<input type="ID" name="inputID" id="inputID" class="form-control" placeholder="Identifiant" required autofocus>
-					<label for="inputPassword" class="sr-only">Mot de passe</label>
-					<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+					<div class="form-group has-feedback">
+						<label for="inputID" class="sr-only">ID</label>
+						<input type="ID" name="inputID" id="inputID" class="form-control" placeholder="Identifiant" required autofocus>
+						<i class="fa fa-user form-control-feedback"></i>
+					</div>
+					<div class="form-group has-feedback">
+						<label for="inputPassword" class="sr-only">Mot de passe</label>
+						<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+						<i class="fa fa-key form-control-feedback"></i>
+					</div>
 					<div class="checkbox">
 						<label>
 							<input name="remember" type="checkbox" value="remember-me"> Se souvenir de moi
@@ -93,9 +99,13 @@
 <!-- ================ --> 
 <header class="header fixed clearfix navbar navbar-fixed-top">
 	<?php
-		include("error.php");
+		//include("error.php");
 	?>
 	<div class="container">
+		<?php
+			include("admin.php");
+			include("error.php");
+		?>
 		<div class="row">
 			<div class="col-md-4">
 
