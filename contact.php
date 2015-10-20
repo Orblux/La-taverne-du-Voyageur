@@ -17,19 +17,10 @@
 	}
 ?>
 	<div class="footer-content">
-		<div>
-			<?php if(array_key_exists('errors',$_SESSION)): ?>
-				<div class="alert alert-danger">
-					<?= implode('<br>', $_SESSION['errors']); ?>
-				</div>
-			<?php endif; ?>
-			<?php if(array_key_exists('success',$_SESSION)): ?>
-				<div class="alert alert-success">
-					Votre email à bien été transmis !
-				</div>
-			<?php endif; ?>
-		</div>
-		<form action="sendto.php" method="post" id="footer-form">
+		<?php
+			include("error.php");
+		?>
+		<form role="form" action="sendto.php" method="post" id="footer-form">
 			<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
 				{	
@@ -81,6 +72,6 @@
 </div>
 <?php
 	unset($_SESSION['inputs']); // on nettoie les données précédentes
-	unset($_SESSION['success']);
-	unset($_SESSION['errors']);
+	unset($_SESSION['log_success']);
+	unset($_SESSION['log_errors']);
 ?>

@@ -12,9 +12,12 @@
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<title>La taverne du Voyageur | Chambre d'hôtes et restauration</title>
-		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
-		<meta name="author" content="htmlcoder.me">
+		<title>La Taverne du Voyageur | Chambre d'hôtes et restauration</title>
+		<meta name="description" content="Présentation de l'établissement de Chambres d'Hôtes et Restaurant, La Taverne du Voyageur">
+		
+		<?php
+			include("metadata.php");
+		?>
 
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +90,7 @@
 								<div class="space"></div>
 							</div>
 							<div class="col-md-6">
-								<p>Nous vous accueuillons dans notre restaurant : <i>La Taverne du Voyageur</i>, toute la semaine du lundi au samedi de 11h à 23h dans une ambiance conviviale ! Restaurant typique de la région, nous vous proposerons différents mets du terroir local avec une carte variant au fil des saisons. Par ailleurs, nous mettons un point d'honneur à valoriser les produits frais des producteurs locaux ! Vous y trouverez donc :</p>
+								<p>Nous vous accueillons dans notre restaurant : <i>La Taverne du Voyageur</i>, toute la semaine du lundi au samedi de 11h à 23h dans une ambiance conviviale ! Restaurant typique de la région, nous vous proposerons différents mets du terroir local avec une carte variant au fil des saisons. Par ailleurs, nous mettons un point d'honneur à valoriser les produits frais des producteurs locaux ! Vous y trouverez donc :</p>
 								<ul class="list-unstyled">
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Des mets d'une grande qualité</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Un service rapide et efficace</li>
@@ -111,7 +114,7 @@
 									<!-- News system -->
 									<?php
 										include("mysql.php");
-										$req = $bdd->prepare('SELECT * FROM news ORDER BY id DESC LIMIT 3');
+										$req = $bdd->prepare('SELECT * FROM news ORDER BY id DESC LIMIT 5');
 										$req->execute();
 
 										while($data = $req->fetch())
@@ -143,7 +146,11 @@
 										{
 											if($_SESSION['allowmodif'] == TRUE)
 											{
+												include("error.php");
 												include("news.php");
+												unset($_SESSION['inputs']); // on nettoie les données précédentes
+												unset($_SESSION['log_success']);
+												unset($_SESSION['log_errors']);
 											}
 										}
 									?>

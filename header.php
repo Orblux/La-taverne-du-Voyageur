@@ -6,7 +6,7 @@
                 <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Login</h4>
             </div>
-			<form class="form-signin" action="login.php" method="post" id="login-form">
+			<form role="form" class="form-signin" action="login.php" method="post" id="login-form">
 				<input type="hidden" name="login" value=FALSE />
 				<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
@@ -57,7 +57,7 @@
                 <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Logout</h4>
             </div>
-			<form class="form-signin" action="login.php" method="post" id="login-form">
+			<form role="form" class="form-signin" action="login.php" method="post" id="login-form">
 				<input type="hidden" name="logout" value=FALSE />
 				<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
@@ -92,18 +92,9 @@
 <!-- header start -->
 <!-- ================ --> 
 <header class="header fixed clearfix navbar navbar-fixed-top">
-	<div>
-		<?php if(array_key_exists('log_errors',$_SESSION)): ?>
-			<div class="alert alert-danger text-center">
-				<?= implode('<br>', $_SESSION['log_errors']); ?>
-			</div>
-		<?php endif; ?>
-		<?php if(array_key_exists('log_success',$_SESSION)): ?>
-			<div class="alert alert-success text-center">
-				<?= implode('<br>', $_SESSION['log_success']); ?>
-			</div>
-		<?php endif; ?>
-	</div>
+	<?php
+		include("error.php");
+	?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
