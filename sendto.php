@@ -1,8 +1,11 @@
 <?php
 	session_start();//on démarre la session
 
-	// $errors = [];
-	$errors = array(); // on crée une vérif de champs
+	// $log_errors = [];
+	$log_errors = array(); // on crée une vérif de champs
+	
+	// $log_success = [];
+	$log_success = array(); // on crée une vérif de champs
 	
 	if(!array_key_exists('current_page', $_POST) || $_POST['current_page'] == '') 
 	{// on verifie l'intégrité du formulaire
@@ -12,33 +15,33 @@
 	
 	if(!array_key_exists('name', $_POST) || $_POST['name'] == '') 
 	{// on verifie l'existence du champ et d'un contenu
-		$errors ['name'] = "Vous n'avez pas renseigné votre nom !";
+		$log_errors ['name'] = "Vous n'avez pas renseigné votre nom !";
 	}
 
 	if(!array_key_exists('email', $_POST) || $_POST['email'] == '' || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
 	{// on verifie existence de la clé
-		$errors ['mail'] = "Vous n'avez pas renseigné votre email !";
+		$log_errors ['mail'] = "Vous n'avez pas renseigné votre email !";
 	}
 	
 	if(!array_key_exists('subject', $_POST) || $_POST['subject'] == '') 
 	{// on verifie l'existence du champ sujet
-		$errors ['subject'] = "Vous n'avez pas saisi de sujet !";
+		$log_errors ['subject'] = "Vous n'avez pas saisi de sujet !";
 	}
 
 	if(!array_key_exists('message', $_POST) || $_POST['message'] == '') 
 	{// on verifie l'existence du message
-		$errors ['message'] = "Vous n'avez pas renseigné votre message !";
+		$log_errors ['message'] = "Vous n'avez pas renseigné votre message !";
 	}
 
 	if(array_key_exists('antispam', $_POST)) 
 	{// on place un petit filet anti robots spammers
-		$errors ['antispam'] = "Vous êtes un robots spammer !";
+		$log_errors ['antispam'] = "Vous êtes un robots spammer !";
 	}
 
 	//On check les infos transmises lors de la validation
-	if(!empty($errors))
+	if(!empty($log_errors))
 	{ // si erreur on renvoie vers la page précédente
-		$_SESSION['errors'] = $errors;//on stocke les erreurs
+		$_SESSION['log_errors'] = $log_errors;//on stocke les erreurs
 		$_SESSION['inputs'] = $_POST;
 		if($_POST['current_page'] == "hotellerie")
 		{	
@@ -98,12 +101,13 @@
 		//=====Envoi de l'e-mail.
 		if(mail($mail,$sujet,$message,$header))
 		{
-			$_SESSION['success'] = 1;
+			$log_success['envoi'] = "Votre email à bien été transmis !";
+			$_SESSION['log_success'] = $log_success;
 		}
 		else
 		{
-			$errors ['envoi'] = "Un problème est survenu durant l'envoi !";
-			$_SESSION['errors'] = $errors;//on stocke les erreurs
+			$log_errors ['envoi'] = "Un problème est survenu durant l'envoi !";
+			$_SESSION['log_errors'] = $log_errors;//on stocke les erreurs
 			$_SESSION['inputs'] = $_POST;
 		}
 		//==========

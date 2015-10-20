@@ -12,9 +12,12 @@
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<title>Hôtellerie | La taverne du Voyageur | Chambre d'hôtes et restauration</title>
-		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
-		<meta name="author" content="htmlcoder.me">
+		<title>Hôtellerie | La Taverne du Voyageur | Chambre d'hôtes et restauration</title>
+		<meta name="description" content="Partie Hôtellerie-Chambres d'Hôtes de la Taverne du Voyageur">
+		
+		<?php
+			include("metadata.php");
+		?>
 
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">

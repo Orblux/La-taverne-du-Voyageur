@@ -8,6 +8,25 @@ License: Creative Commons Attribution 3.0 License (https://creativecommons.org/l
 File Description: Place here your custom CSS styles
 */
 
+/* Footer
+----------------------------------------------------------------------------- */
+
+.nav-pills-footer > li.active > a,
+.nav-pills-footer > li.active > a:hover,
+.nav-pills-footer > li.active > a:focus,
+.nav-pills-footer > li > a:hover {
+	background-color: #d00514;
+	border-color: #d00514;
+	color: #ffffff;
+}
+.nav-pills-footer > li > a {
+	padding: 8px 20px;
+	color: #666666;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
 /* Google Map
 ----------------------------------------------------------------------------- */
 

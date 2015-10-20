@@ -12,10 +12,13 @@
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<title>La taverne du Voyageur | Chambre d'hôtes et restauration</title>
-		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
-		<meta name="author" content="htmlcoder.me">
-
+		<title>La Taverne du Voyageur | Chambre d'hôtes et restauration</title>
+		<meta name="description" content="Présentation de l'établissement de Chambres d'Hôtes et Restaurant, La Taverne du Voyageur">
+		
+		<?php
+			include("metadata.php");
+		?>
+		
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -94,47 +97,65 @@
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Une grande convivialité</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Et surtout, de quoi apaiser votre faim !</li>
 								</ul>
-								<p>Vous trouverez donc chez nous de quoi vous régaler et prendre plaisir à notre table. Que ce soit en famille ou en solitaire, pour le travail ou les vacances vous ne serez pas déçus d'être passés par <i>La Taverne du Voyageur</i>!</p>								
+
+								<p>Vous trouverez donc chez nous de quoi vous régaler et prendre plaisir à notre table. Que ce soit en famille ou en solitaire, pour le travail ou les vacances vous ne serez pas déçu d'être passé par <i>La Taverne du Voyageur</i> !</p>								
 							</div>
 						</div>
-						<h2><center>Un restaurant, une région, La Taverne du Voyageur!</center></h2>
+						<h2><center>Un restaurant, une région, La Taverne du Voyageur !</center></h2>
 						<div class="space"></div>
 						<div class="row">
 							<div class="col-md-6">
-								<p>	C'est au coeur de la région auvergnate que se situent notre savoir-faire et nos produits. C'est avec une ambiance originale et de caractère que nous serons heureux de vous présenter notre culture!</p>
-								<p>C'est dans le village de Bas-en-Basset que se trouve l'étape de la Taverne du voyageur dans la région de la Haute Loire. Notre région est forte de caractère et de vie, située au pied du Massif Central. Non loin de Lyon nous jouissons du calme de la campagne et de l'histoire de la région avec la proximité du château de Rochebaron. Vous pouvez de ce fait venir de tout bord à notre rencontre : venant de la capitale ou des provinces, de la mer ou de la montagne, notre taverne vous attendra avec le plus grand des plaisirs!</p>
-								<p>CConvivialité étant le maître mot du restaurant, nous vous proposons divers événements tout au cours de l'année. N'hésitez pas à regarder les différents changements de carte et les grands moments de l'année sur notre site.</p>
+								<p>	C'est au coeur de la région auvergnate que se situe notre savoir-faire et nos produits. C'est avec une ambiance originale et de caractère que nous serons heureux de vous présenter notre culture !</p>
+								<p>C'est dans le village de Bas-en-Basset que se trouve l'étape de la taverne du voyageur dans la région de la Haute Loire. Notre région est forte de caractère et de vie, située au pied du massif central. Non loin de Lyon nous jouissons du calme de la campagne et de l'histoire de la région avec la proximité du chateau de Rochebaron. Vous pouvez de ce fait venir de tout bord à notre rencontre : venant de la capitale ou des provinces, de la mer ou de la montagne notre taverne vous attendra !</p>
+								<p>Convivialité étant le maître mot du restaurant nous vous proposons de nombreux événements tout au cours de l'année, n'hésitez pas à regarder les différents changements de carte et les grands moments de l'année sur notre site.</p>
 							</div>
 							<div class="col-md-6">
 								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOne">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-													Automne 2015
-												</a>
-											</h4>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-											<div class="panel-body">
-												Pour l'automne nous vous proposons de nouveaux plats inédits pour votre plus grand plaisir. Vous pourrez trouver dans nos recettes typiques les produits de notre région.
+									
+									<!-- News system -->
+									<?php
+										include("mysql.php");
+										$req = $bdd->prepare('SELECT * FROM news ORDER BY id DESC LIMIT 5');
+										$req->execute();
+
+										while($data = $req->fetch())
+										{
+											?>
+											<div class="panel panel-default">
+												<div class="panel-heading" role="tab" id="heading<?php echo $data['id']; ?>">
+													<h4 class="panel-title">
+														<a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $data['id']; ?>" aria-expanded="true" aria-controls="<?php echo $data['id']; ?>">
+															<?php echo $data['titre']; ?>
+														</a>
+													</h4>
+												</div>
+												<div id="<?php echo $data['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $data['id']; ?>">
+													<div class="panel-body">
+														<?php echo $data['contenu']; ?>
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingTwo">
-											<h4 class="panel-title">
-												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-													Noël et Nouvel An
-												</a>
-											</h4>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-											<div class="panel-body">
-												Pour ces occasions nous vous proposons deux événements inédits, n'hésitez pas à suivre notre actualité pour en savoir plus dans les mois à venir.
-											</div>
-										</div>
-									</div>									
+											<?php
+										}
+										$req->closeCursor(); // Termine le traitement de la requête
+									?>
+									
+									<!-- Autorise l'édition si Admin -->
+									<!-- ----------------------------------------------------------------------- -->
+									<?php
+										if(isset($_SESSION['allowmodif']))
+										{
+											if($_SESSION['allowmodif'] == TRUE)
+											{
+												include("news.php");
+												include("error.php");
+												unset($_SESSION['inputs']); // on nettoie les données précédentes
+												unset($_SESSION['log_success']);
+												unset($_SESSION['log_errors']);
+											}
+										}
+									?>
+									<!-- ----------------------------------------------------------------------- -->
 								</div>
 							</div>
 					    </div>
@@ -146,7 +167,7 @@
 		<!-- 2nd section start -->
 		<div class="footer section">
 				<div class="container">
-					<h1 class="title text-center" id="infos">Où nous trouver?</h1>
+					<h1 class="title text-center" id="infos">Où nous trouver ?</h1>
 					<div class="space"></div>
 					<div class="row">
 						<div class="col-sm-6">

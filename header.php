@@ -1,12 +1,12 @@
 <!-- Modale Login -->
-<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog modal-height">
         <div class="modal-content">			
             <div class="modal-header">
                 <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Login</h4>
             </div>
-			<form class="form-signin" action="login.php" method="post" id="login-form">
+			<form role="form" class="form-signin" action="login.php" method="post" id="login-form">
 				<input type="hidden" name="login" value=FALSE />
 				<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
@@ -30,10 +30,16 @@
 				?>
 				<div class="modal-body">              
 					<h2 class="form-signin-heading">Connexion</h2>
-					<label for="inputID" class="sr-only">ID</label>
-					<input type="ID" name="inputID" id="inputID" class="form-control" placeholder="Identifiant" required autofocus>
-					<label for="inputPassword" class="sr-only">Mot de passe</label>
-					<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+					<div class="form-group has-feedback">
+						<label for="inputID" class="sr-only">ID</label>
+						<input type="ID" name="inputID" id="inputID" class="form-control" placeholder="Identifiant" required autofocus>
+						<i class="fa fa-user form-control-feedback"></i>
+					</div>
+					<div class="form-group has-feedback">
+						<label for="inputPassword" class="sr-only">Mot de passe</label>
+						<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+						<i class="fa fa-key form-control-feedback"></i>
+					</div>
 					<div class="checkbox">
 						<label>
 							<input name="remember" type="checkbox" value="remember-me"> Se souvenir de moi
@@ -50,14 +56,14 @@
 </div>
 
 <!-- Modale Logout -->
-<div class="modal fade" id="Logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog" aria-labelledby="Logout" aria-hidden="true">
     <div class="modal-dialog modal-height">
         <div class="modal-content">			
             <div class="modal-header">
                 <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Logout</h4>
             </div>
-			<form class="form-signin" action="login.php" method="post" id="login-form">
+			<form role="form" class="form-signin" action="login.php" method="post" id="login-form">
 				<input type="hidden" name="logout" value=FALSE />
 				<input type="hidden" name="current_page" <?php
 				if($current_page == "hotellerie")
@@ -92,19 +98,14 @@
 <!-- header start -->
 <!-- ================ --> 
 <header class="header fixed clearfix navbar navbar-fixed-top">
-	<div>
-		<?php if(array_key_exists('log_errors',$_SESSION)): ?>
-			<div class="alert alert-danger text-center">
-				<?= implode('<br>', $_SESSION['log_errors']); ?>
-			</div>
-		<?php endif; ?>
-		<?php if(array_key_exists('log_success',$_SESSION)): ?>
-			<div class="alert alert-success text-center">
-				<?= implode('<br>', $_SESSION['log_success']); ?>
-			</div>
-		<?php endif; ?>
-	</div>
+	<?php
+		//include("error.php");
+	?>
 	<div class="container">
+		<?php
+			include("admin.php");
+			include("error.php");
+		?>
 		<div class="row">
 			<div class="col-md-4">
 

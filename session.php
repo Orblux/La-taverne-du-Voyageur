@@ -35,6 +35,8 @@
 					$data = $req->fetch();
 					$verifID = $data['identifiant'];
 					
+					$req->closeCursor(); // Termine le traitement de la requête
+					
 					if(sha1($_SESSION['ID']) == $verifID)
 					{
 						$_SESSION['allowmodif'] = TRUE;
