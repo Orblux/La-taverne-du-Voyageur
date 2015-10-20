@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+<?php
+	session_start();//on démarre la session
+	$current_page = "restauration";
+	
+	include("session.php");
+?>
+
+<!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -40,82 +47,12 @@
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
-
+		
 		<!-- header start -->
 		<!-- ================ --> 
-		<header class="header fixed clearfix navbar navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-
-						<!-- header-left start -->
-						<!-- ================ -->
-						<div class="header-left clearfix">
-
-							<!-- logo -->
-							<div class="logo smooth-scroll">
-								<a href="index.html"><img id="logo" src="images/logo.png" alt="Worthy"></a>
-							</div>
-
-							<!-- name-and-slogan -->
-							<!-- A VOIR...
-							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">La taverne du Voyageur</a></div>
-								<div class="site-slogan">Chambres d'hôtes & restauration</div>
-							</div> -->
-
-						</div>
-						<!-- header-left end -->
-
-					</div>
-					<div class="col-md-8">
-
-						<!-- header-right start -->
-						<!-- ================ -->
-						<div class="header-right clearfix">
-
-							<!-- main-navigation start -->
-							<!-- ================ -->
-							<div class="main-navigation animated">
-
-								<!-- navbar start -->
-								<!-- ================ -->
-								<nav class="navbar navbar-default" role="navigation">
-									<div class="container-fluid">
-
-										<!-- Toggle get grouped for better mobile display -->
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
-
-										<!-- Collect the nav links, forms, and other content for toggling -->
-										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<li class="active"><a href="index.html">Présentation</a></li>
-												<li><a href="#restauration">Restauration</a></li>
-												<li><a href="hotellerie.html">Hôtellerie</a></li>
-											</ul>
-										</div>
-
-									</div>
-								</nav>
-								<!-- navbar end -->
-
-							</div>
-							<!-- main-navigation end -->
-
-						</div>
-						<!-- header-right end -->
-
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php			
+			include("header.php");
+		?>
 		<!-- header end -->
 
 		<!-- section start -->
@@ -124,8 +61,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1 id="restauration" class="title text-center">Une <span>Taverne</span> de passage et de repos</h1>
-						<h2 class="lead text-center">Emoustillez vos papilles avec nos fleurons de la gastronomie française !</h2>
+						<h1 id="restauration" class="title text-center">La <span>Taverne</span> du voyageur, un lieu de détente offrant un bon repas et du repos aux voyageurs</h1>
+						<div class="space"></div>
+						<h2 class="lead text-center">C'est dans la campagne auvergnate que vous trouverez notre chaleureux restaurant, cuisine de terroir et douceur de vivre vous accompagnerons lors de votre venue chez nous !</h2>
 						<div class="space"></div>
 						<div class="row">
 							<div class="col-md-6">
@@ -426,7 +364,7 @@
 								<i class="fa fa-cutlery"></i>
 							</div>
 							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Mouse au chocolat</h4>
+								<h4 class="media-heading">Mousse au chocolat</h4>
 								<p>4.50€</p>
 							</div>
 						</div>
@@ -526,56 +464,22 @@
 									<li><i class="fa fa-envelope-o pr-10"></i>lataverneduvoyageur@ovh.org</li>
 								</ul>
 								<div id="map-container-restaurant"></div>
-								<!--ul class="social-links">
-									<li class="facebook"><a target="_blank" href="https://www.facebook.com/pages/HtmlCoder/714570988650168"><i class="fa fa-facebook"></i></a></li>
-									<li class="twitter"><a target="_blank" href="https://twitter.com/HtmlcoderMe"><i class="fa fa-twitter"></i></a></li>
-									<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-									<li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
-									<li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-									<li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
-									<li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
-									<li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
-								</ul-->
 							</div>							
 						</div>
-						<div class="col-sm-6">
-							<div class="footer-content">
-								<form role="form" id="footer-form">
-									<div class="form-group has-feedback">
-										<label class="sr-only" for="name2">Name</label>
-										<input type="text" class="form-control" id="name2" placeholder="Nom" name="name2" required>
-										<i class="fa fa-user form-control-feedback"></i>
-									</div>
-									<div class="form-group has-feedback">
-										<label class="sr-only" for="email2">Email address</label>
-										<input type="email" class="form-control" id="email2" placeholder="Adresse mail" name="email2" required>
-										<i class="fa fa-envelope form-control-feedback"></i>
-									</div>
-									<div class="form-group has-feedback">
-										<label class="sr-only" for="message2">Message</label>
-										<textarea class="form-control" rows="8" id="message2" placeholder="Message" name="message2" required></textarea>
-										<i class="fa fa-pencil form-control-feedback"></i>
-									</div>
-									<input type="submit" value="Send" class="btn btn-default">
-								</form>
-							</div>
-						</div>
+						<!-- Formulaire de contact -->
+						<?php
+							include("contact.php");
+						?>
 					</div>
 				</div>
 			</div>
 			<!-- .footer end -->
 
 			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center">Copyright @ 2014 Worthy by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- ================ -->			
+			<?php 
+				include("footer.php");
+			?>
 			<!-- .subfooter end -->
 
 		</footer>

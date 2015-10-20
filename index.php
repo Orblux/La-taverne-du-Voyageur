@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<?php
+	session_start();//on démarre la session
+	$current_page = "index";
+	
+	include("session.php");
+?>
+
+<!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -42,80 +49,9 @@
 
 		<!-- header start -->
 		<!-- ================ --> 
-		<header class="header fixed clearfix navbar navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-
-						<!-- header-left start -->
-						<!-- ================ -->
-						<div class="header-left clearfix">
-
-							<!-- logo -->
-							<div class="logo smooth-scroll">
-								<a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
-							</div>
-
-							<!-- name-and-slogan -->
-							<!-- A VOIR...
-							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">La taverne du Voyageur</a></div>
-								<div class="site-slogan">Chambres d'hôtes & restauration</div>
-							</div> -->
-
-						</div>
-						<!-- header-left end -->
-
-					</div>
-
-					<div class="col-md-8">
-
-						<!-- header-right start -->
-						<!-- ================ -->
-						<div class="header-right clearfix">
-
-							<!-- main-navigation start -->
-							<!-- ================ -->
-							<div class="main-navigation animated">
-
-								<!-- navbar start -->
-								<!-- ================ -->
-								<nav class="navbar navbar-default" role="navigation">
-									<div class="container-fluid">
-
-										<!-- Toggle get grouped for better mobile display -->
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
-
-										<!-- Collect the nav links, forms, and other content for toggling -->
-										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<li class="active"><a href="#banner">Présentation</a></li>
-												<li><a href="restauration.html">Restauration</a></li>
-												<li><a href="hotellerie.html">Hôtellerie</a></li>
-											</ul>
-										</div>
-
-									</div>
-								</nav>
-								<!-- navbar end -->
-
-							</div>
-							<!-- main-navigation end -->
-
-						</div>
-						<!-- header-right end -->
-
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php			
+			include("header.php");
+		?>		
 		<!-- header end -->
 
 		<!-- banner start -->
@@ -125,8 +61,8 @@
 			<div class="banner-caption">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h0 class="text-center"><i><span>La Taverne du Voyageur</span></i></h0>
+						<div class="col-md-12 center-block text-center object-non-visible" data-animation-effect="fadeIn">
+							<h0 class="text-center"><i><span>La Taverne du Voyageur</i></span></h0>
 							<h2 class="text-center">Une restauration typique de la région Auvergnate</h2>
 						</div>
 					</div>
@@ -143,7 +79,7 @@
 					<div class="col-md-12">
 						<h1 id="about" class="title text-center">La <span>Taverne</span> du voyageur, un lieu de détente offrant un bon repas et du repos aux voyageurs</h1>
 						<div class="space"></div>
-						<h2 class="lead text-center">C'est dans la campagne auvergnate que vous trouverez notre chaleureux restaurant, cuisine de terroir et douceur de vivre vous accompagnerons lors de votre venue chez nous !</h2>
+						<h2 class="lead text-center">C'est dans la campagne auvergnate que vous trouverez notre chaleureux restaurant, cuisine de terroir et douceur de vivre vous accompagneront lors de votre venue chez nous!</h2>
 						<div class="space"></div>
 						<div class="row">
 							<div class="col-md-6">
@@ -151,23 +87,23 @@
 								<div class="space"></div>
 							</div>
 							<div class="col-md-6">
-								<p>Nous vous accueuillons dans notre restaurant : <i>La Taverne du Voyageur</i>, toute la semaine du lundi au samedi de 11h à 23h dans une ambiance conviviale ! Restaurant typique de la région, nous vous proposerons différents mets du terroir local avec une carte variant au fil des saisons. Par ailleurs, nous mettons un point d'honneur à valoriser les produits frais des producteurs locaux ! Vous y trouverez donc :</p>
+								<p>Nous vous accueillons dans notre restaurant : <i>La Taverne du Voyageur</i>, toute la semaine du lundi au samedi de 11h à 23h dans une ambiance conviviale! Restaurant typique de la région, nous vous proposerons différents mets du terroir local avec une carte variant au fil des saisons. Par ailleurs, nous mettons un point d'honneur à valoriser les produits frais des producteurs locaux! Vous y trouverez donc :</p>
 								<ul class="list-unstyled">
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Des mets d'une grande qualité</li>
+									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Des mets de qualité</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Un service rapide et efficace</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Une grande convivialité</li>
 									<li><i class="fa fa-caret-right pr-10 text-colored"></i> Et surtout, de quoi apaiser votre faim !</li>
 								</ul>
-								<p>Vous trouverez donc chez nous de quoi vous régaler et prendre plaisir à notre table. Que ce soit en famille ou en solitaire, pour le travail ou les vacances vous ne serez pas déçu d'être passé par <i>La Taverne du Voyageur</i> !</p>								
+								<p>Vous trouverez donc chez nous de quoi vous régaler et prendre plaisir à notre table. Que ce soit en famille ou en solitaire, pour le travail ou les vacances vous ne serez pas déçus d'être passés par <i>La Taverne du Voyageur</i>!</p>								
 							</div>
 						</div>
-						<h2><center>Un restaurant, une région, La Taverne du Voyageur !</center></h2>
+						<h2><center>Un restaurant, une région, La Taverne du Voyageur!</center></h2>
 						<div class="space"></div>
 						<div class="row">
 							<div class="col-md-6">
-								<p>	C'est au coeur de la région auvergnate que se situe notre savoir-faire et nos produits. C'est avec une ambiance originale et de caractère que nous serons heureux de vous présenter notre culture !</p>
-								<p>C'est dans le village de Bas-en-Basset que se trouve l'étape de la taverne du voyageur dans la région de la Haute Loire. Notre région est forte de caractère et de vie, située au pied du massif central. Non loin de Lyon nous jouissons du calme de la campagne et de l'histoire de la région avec la proximité du chateau de Rochebaron. Vous pouvez de ce fait venir de tout bord à notre rencontre : venant de la capitale ou des provinces, de la mer ou de la montagne notre taverne vous attendra !</p>
-								<p>Convivialité étant le maître mot du restaurant nous vous proposons de nombreux événements tout au cours de l'année, n'hésitez pas à regarder les différents changements de carte et les grands moments de l'année sur notre site.</p>
+								<p>	C'est au coeur de la région auvergnate que se situent notre savoir-faire et nos produits. C'est avec une ambiance originale et de caractère que nous serons heureux de vous présenter notre culture!</p>
+								<p>C'est dans le village de Bas-en-Basset que se trouve l'étape de la Taverne du voyageur dans la région de la Haute Loire. Notre région est forte de caractère et de vie, située au pied du Massif Central. Non loin de Lyon nous jouissons du calme de la campagne et de l'histoire de la région avec la proximité du château de Rochebaron. Vous pouvez de ce fait venir de tout bord à notre rencontre : venant de la capitale ou des provinces, de la mer ou de la montagne, notre taverne vous attendra avec le plus grand des plaisirs!</p>
+								<p>CConvivialité étant le maître mot du restaurant, nous vous proposons divers événements tout au cours de l'année. N'hésitez pas à regarder les différents changements de carte et les grands moments de l'année sur notre site.</p>
 							</div>
 							<div class="col-md-6">
 								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -181,7 +117,7 @@
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 											<div class="panel-body">
-												Pour l'automne nous vous proposons de nouveaux plats inédits pour votre plus grand plaisir. Issu directement des producteurs locaux vous pourrez venir goûter ces mets cuisinés par notre cuisinier dans des recettes typiques.
+												Pour l'automne nous vous proposons de nouveaux plats inédits pour votre plus grand plaisir. Vous pourrez trouver dans nos recettes typiques les produits de notre région.
 											</div>
 										</div>
 									</div>
@@ -189,7 +125,7 @@
 										<div class="panel-heading" role="tab" id="headingTwo">
 											<h4 class="panel-title">
 												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-													Noël et le Nouvel An
+													Noël et Nouvel An
 												</a>
 											</h4>
 										</div>
@@ -210,7 +146,7 @@
 		<!-- 2nd section start -->
 		<div class="footer section">
 				<div class="container">
-					<h1 class="title text-center" id="infos">Où nous trouver ?</h1>
+					<h1 class="title text-center" id="infos">Où nous trouver?</h1>
 					<div class="space"></div>
 					<div class="row">
 						<div class="col-sm-6">
@@ -237,16 +173,10 @@
 		<footer id="footer">
 
 			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center">Copyright © 2014 Worthy by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- ================ -->			
+			<?php 
+				include("footer.php");
+			?>
 			<!-- .subfooter end -->
 
 		</footer>
@@ -276,6 +206,6 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-
+		
 	</body>
 </html>
