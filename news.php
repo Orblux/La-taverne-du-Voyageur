@@ -186,9 +186,9 @@
 					{	
 						include("mysql.php");
 						
-						$name = sha1(htmlspecialchars($_POST["name"]));
-						$title = htmlspecialchars($_POST["title"]);
-						$content = htmlspecialchars($_POST["content"]);
+						$name = sha1(htmlentities($_POST["name"]));
+						$title = strip_tags($_POST["title"], '<br><strong><small>');
+						$content = strip_tags($_POST["content"], '<br><strong><small>');
 						
 						$req = $bdd->prepare('INSERT INTO news(auteur, titre, contenu) VALUES(:name, :title, :content)');
 						$req->execute(array(
@@ -238,9 +238,9 @@
 						include("mysql.php");
 						
 						$ID = $_POST["news_to_edit"];						
-						$name = sha1(htmlspecialchars($_POST["name"]));						
-						$title = htmlspecialchars($_POST["title"]);
-						$content = htmlspecialchars($_POST["content"]);						
+						$name = sha1(htmlentities($_POST["name"]));						
+						$title = strip_tags($_POST["title"], '<br><strong><small>');
+						$content = strip_tags($_POST["content"], '<br><strong><small>');					
 						
 						$req = $bdd->prepare('UPDATE news SET auteur = :name, titre = :title, contenu = :content WHERE id = :ID');
 						$req->execute(array(

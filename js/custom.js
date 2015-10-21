@@ -28,7 +28,7 @@
 		'Une Taverne de passage et de repos<br>' +
 		'Gastronomie française<br>'+
 		'pour petits et grands !</p>'+
-		'<a href="index.html" target="_blank">Le Restaurant</a>'+
+		'<a href="index.php" target="_blank">Le Restaurant</a>'+
 		'</div>';
  
         var var_infowindow = new google.maps.InfoWindow(
@@ -70,7 +70,7 @@
 		'Une Taverne de passage et de repos<br>' +
 		'Pour les voyageurs<br>'+
 		'et les fins gourmets !</p>'+
-		'<a href="index.html" target="_blank">Les Chambres</a>'+
+		'<a href="index.php" target="_blank">Les Chambres</a>'+
 		'</div>';
  
         var var_infowindow = new google.maps.InfoWindow(

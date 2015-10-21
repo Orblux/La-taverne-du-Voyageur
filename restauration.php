@@ -102,349 +102,250 @@
 						<p><hr><p>
 					</div>
 				</div>
+				
+				<?php
+					include("mysql.php");
+					$req = $bdd->prepare('SELECT * FROM menu WHERE type = :type');
+				?>
+				
 				<!-- Les entrées -->
 				<div class="row">					
 					<h2 class="text-center title">Les entrées</h2>
 					<div class="col-sm-6">
-						<div class="media">
 						<h3 class="text-left title">Les salades</h3>
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Salade Italienne : 9.50€</h4>
-								<p>Salade verte, jambon cru, coppa, mozzarelle, tomate<p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Salade Océane : 9.50€</h4>
-								<p>Salade verte, fruits de mer marinés, filet de rouget poché</p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Salade Auvergnate : 9.50€</h4>
-								<p>Salade verte, toast de fourme chaude, lardons rôtis</p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Salade de Foie de Volailles : 9.50€</h4>
-								<p>Salade verte, foie de volaille rôtis, tomates, œuf poêlé</p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Ou en XL : 13.90€</h4>
-								<p>Salade composée, frites & dessert </p>
-							</div>							
-						</div>
+						<?php							
+							$req->execute(array('type' => 'salades'));
+							
+							while($data = $req->fetch())
+							{
+								?>
+									<div class="media">
+										<div class="media-right">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<div class="media-body text-left">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>'); ?><p>								
+										</div>							
+									</div>								
+								<?php
+							}
+							$req->closeCursor(); // Termine le traitement de la requête
+						?>						
 					</div>
+					
 					<div class="space visible-xs"></div>
 					<div class="col-sm-6">
 						<h3 class="text-right title">Les ravioles</h3>
-						<div class="media">
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Au Foie Gras</h4>
-								<p>11.90€ & XL 14.90€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">	
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Au Fruits de Mer</h4>
-								<p>11.90€ & XL 14.90€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">	
-						<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Au Poivre Vert</h4>
-								<p>11.90€ & XL 14.90€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">	
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Aux Morilles</h4>
-								<p>11.90€ & XL 14.90€</p>
-							</div>							
-						</div>						
+						<?php							
+							$req->execute(array('type' => 'ravioles'));
+							
+							while($data = $req->fetch())
+							{
+								?>
+									<div class="media">
+										<div class="media-right pull-right">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<div class="media-body pull-right text-right">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+										</div>							
+									</div>
+									<div class="clearfix"></div>									
+								<?php
+							}
+							$req->closeCursor(); // Termine le traitement de la requête
+						?>
 					</div>
 				</div>
+				
 				<!-- Separator -->
 				<div class="row">
 					<div class="media text-center">
 						<p><hr><p>
 					</div>
 				</div>
+				
 				<!-- Les plats -->
 				<div class="row">					
 					<h2 class="text-center title">Les plats</h2>
 					<div class="col-sm-6">
-						<div class="media">
 						<h3 class="text-left title">Les viandes</h3>
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Sauté de canard du Chef</h4>
-								<p>12.50€<p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Pièce du boucher</h4>
-								<p>Bavette, entrecôte,... 13.80€</p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Filet Mignon sauce morilles</h4>
-								<p>12.50€</p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Gâteau de foie maison sauce écrevisses</h4>
-								<p>12.50€</p>
-							</div>							
-						</div>						
+						<?php							
+							$req->execute(array('type' => 'viandes'));
+							
+							while($data = $req->fetch())
+							{
+								?>
+									<div class="media">
+										<div class="media-right">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<div class="media-body text-left">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+										</div>							
+									</div>								
+								<?php
+							}
+							$req->closeCursor(); // Termine le traitement de la requête
+						?>											
 					</div>
+					
 					<div class="space visible-xs"></div>
 					<div class="col-sm-6">
 						<h3 class="text-right title">Les poissons</h3>
-						<div class="media">	
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading text-right">Le gratin de poisson aux ravioles</h4>
-								<p>11.90€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>						
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">La cocotte du pécheur</h4>
-								<p>Différents poissons selon arrivage 11.90€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">	
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Les cuisses de grenouille</h4>
-								<p>13.90€</p>
-							</div>							
-						</div>												
+						<?php							
+							$req->execute(array('type' => 'poissons'));
+							
+							while($data = $req->fetch())
+							{
+								?>
+									<div class="media">
+										<div class="media-right pull-right">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<div class="media-body pull-right text-right">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+										</div>							
+									</div>
+									<div class="clearfix"></div>									
+								<?php
+							}
+							$req->closeCursor(); // Termine le traitement de la requête
+						?>																	
 					</div>
 				</div>
+				
 				<div class="row">
 					<p><br><p>
 				</div>
+				
 				<div class="row">				
 					<h3 class="text-center title">Les burgers</h3>
-					<div class="col-sm-4">
-						<div class="media">						
-							<div class="media-body text-center">
-								<h4 class="media-heading">Le classic : 11.50€</h4>
-								<p>Bun’s, steak haché 180g, salade verte, tomate, oignon frites, cheddar, frites<p>
-							</div>							
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center">
-								<h4 class="media-heading">L'Auvergnat : 11.50€</h4>
-								<p>Bun’s, steak haché 180 gr, salade verte, tomate, fourme, frites</p>
-							</div>							
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center">
-								<h4 class="media-heading">L'Italien : 12.50€</h4>
-								<p>Bun’s, steack haché 180 gr, salade verte, jambon cru, pesto, frites</p>
-							</div>							
-						</div>											
-					</div>
+					<?php							
+						$req->execute(array('type' => 'burgers'));
+							
+						while($data = $req->fetch())
+						{
+							?>
+								<div class="col-sm-4">
+									<div class="media">						
+										<div class="media-body text-center">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>'); ?><p>
+										</div>							
+									</div>
+								</div>									
+							<?php
+						}
+						$req->closeCursor(); // Termine le traitement de la requête
+					?>
 				</div>
+				
 				<!-- Separator -->
 				<div class="row">
 					<div class="media text-center">
 						<p><hr><p>
 					</div>
 				</div>
+				
 				<!-- Les desserts -->
 				<div class="row">					
 					<h2 class="text-center title">Les desserts</h2>
 					<div class="col-sm-6">
-						<div class="media">
 						<h3 class="text-left title">Les fromages</h3>
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Assiette de fromage</h4>
-								<p>3.90€<p>
-							</div>							
-						</div>
-						<div class="media">
-							<div class="media-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body text-left">
-								<h4 class="media-heading">Fromage blanc Faisselle</h4>
-								<p>2.90€</p>
-							</div>
-						</div>						
+						<?php							
+							$req->execute(array('type' => 'fromages'));
+							
+							while($data = $req->fetch())
+							{
+								?>
+									<div class="media">
+										<div class="media-right">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<div class="media-body text-left">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+										</div>							
+									</div>								
+								<?php
+							}
+							$req->closeCursor(); // Termine le traitement de la requête
+						?>												
 					</div>
+					
 					<div class="space visible-xs"></div>
 					<div class="col-sm-6">
 						<h3 class="text-right title">Les douceurs</h3>
-						<div class="media">
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Vacherin</h4>
-								<p class="text-right">Glace-meringuée 5.50€</p>
-							</div>														
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">		
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Crème brulée</h4>
-								<p>5.50€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">	
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Mousse au chocolat</h4>
-								<p>4.50€</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="media">
-							<div class="media-right pull-right">
-								<i class="fa fa-cutlery"></i>
-							</div>
-							<div class="media-body pull-right text-right">
-								<h4 class="media-heading">Ile flottante</h4>
-								<p>4.50€</p>
-							</div>
-						</div>						
+						<?php							
+							$req->execute(array('type' => 'douceurs'));
+							
+							while($data = $req->fetch())
+							{
+								?>
+									<div class="media">
+										<div class="media-right pull-right">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<div class="media-body pull-right text-right">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+										</div>							
+									</div>
+									<div class="clearfix"></div>									
+								<?php
+							}
+							$req->closeCursor(); // Termine le traitement de la requête
+						?>											
 					</div>
 				</div>
+				
 				<!-- Separator -->
 				<div class="row">
 					<div class="media text-center">
 						<p><hr><p>
 					</div>
 				</div>
+				
 				<!-- Les menus -->
 				<div class="row">					
 					<h2 class="text-center title">Les menus</h2>
-					<div class="col-sm-4">
-						<div class="media">						
-							<div class="media-body text-center center-block">
-								<h4 class="media-heading">Menu du jour : 12.90€</h4>
-								<p>Entrée du jour & Plat du jour<br>Fromage<br>Dessert<br><small>Quart de vin & Café</small></p>
-							</div>							
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center center-block">
-								<h4 class="media-heading">Menu Rapée : 13.90€€</h4>
-								<p>Charcuterie & Rapée<br>Fromage OU Dessert<p>
-							</div>							
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center center-block">
-								<h4 class="media-heading">Menu du Week-end : 15.50€</h4>
-								<p>Entrée<br>Plat du week-end<br>Fromage OU Dessert<br><small>Verre de vin OU Café</small></p>
-							</div>							
-						</div>										
-					</div>
-				</div>
-				<div class="row">
-					<p><br><p>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center center-block">
-								<h4 class="media-heading">Menu Grenouilles : 18.90€</h4>
-								<p>Assiette de charcuterie<br>Cuisse de grenouilles - Rapée<br>Fromage OU Dessert</p>
-							</div>							
-						</div>											
-					</div>
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center center-block">
-								<h4 class="media-heading">Menu Taverne : 26.50€</h4>
-								<p>Entrée à la carte<br>Plat à la carte<br>Fromage blanc ou sec<br>Dessert</p>
-							</div>							
-						</div>											
-					</div>
-					<div class="col-sm-4">
-						<div class="media">
-							<div class="media-body text-center center-block">
-								<h4 class="media-heading">Menu Petit Voyageur : 7.90€</h4>
-								<p>Steak ou Nuggets<br>Frites ou Légumes<br>Dessert<br><small>Petit sirop</small><br><strong>Réservé au - de 12 ans</strong></p>
-							</div>							
-						</div>											
-					</div>
+					
+					<?php							
+						$req->execute(array('type' => 'menus'));
+						
+						$i = 0;
+						while($data = $req->fetch())
+						{	
+							$i=$i+1;
+							?>
+								<div class="col-sm-4">
+									<div class="media">						
+										<div class="media-body text-center center-block">
+											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']); ?></h4>
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>'); ?><p>								
+										</div>							
+									</div>
+								</div>									
+							<?php
+							if($i == 3)
+							{
+								$i = 0;
+								?>
+									</div>
+										<div class="row">
+											<p><br><p>
+										</div>
+									<div class="row">										
+								<?php
+							}							
+						}
+						$req->closeCursor(); // Termine le traitement de la requête
+					?>					
 				</div>
 			</div>			
 		</div>

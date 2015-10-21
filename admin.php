@@ -105,7 +105,7 @@
 			?>
 			<div class="row">
 				<div class="panel-heading">
-					<p class="col-md-6">Bonjour <?php echo $_SESSION["ID"]; ?> ! Voici le menu d'administration des comptes:</p>
+					<p class="col-md-6">Bonjour <?php echo $_SESSION["ID"]; ?> ! Voici le menu d'administration des comptes :</p>
 					<div class="btn-group col-md-6">
 						<button type="button" data-toggle="modal" class="btn btn-default btn-lg" data-target="#Account_add"><i class="fa fa-plus-square icon-lg"></i> Ajouter</button>
 						<button type="button" data-toggle="modal" class="btn btn-default btn-lg" data-target="#Account_edit"><i class="fa fa-pencil-square-o icon-lg"></i> Modifier</button>

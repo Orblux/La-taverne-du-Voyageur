@@ -125,13 +125,13 @@
 												<div class="panel-heading" role="tab" id="heading<?php echo $data['id']; ?>">
 													<h4 class="panel-title">
 														<a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $data['id']; ?>" aria-expanded="true" aria-controls="<?php echo $data['id']; ?>">
-															<?php echo $data['titre']; ?>
+															<?php echo strip_tags($data['titre'], '<br><strong><small>'); ?>
 														</a>
 													</h4>
 												</div>
 												<div id="<?php echo $data['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $data['id']; ?>">
 													<div class="panel-body">
-														<?php echo $data['contenu']; ?>
+														<?php echo strip_tags($data['contenu'], '<br><strong><small>'); ?>
 													</div>
 												</div>
 											</div>
