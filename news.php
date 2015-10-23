@@ -289,7 +289,7 @@
 
 						$req->closeCursor(); // Termine le traitement de la requête
 												
-						$log_success['news_add'] = "Votre news a été supprimée avec succès !";
+						$log_success['news_del'] = "Votre news a été supprimée avec succès !";
 						$_SESSION['log_success'] = $log_success;
 
 						$req->closeCursor(); // Termine le traitement de la requête

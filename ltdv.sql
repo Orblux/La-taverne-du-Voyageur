@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 21 Octobre 2015 à 02:08
+-- Généré le :  Ven 23 Octobre 2015 à 17:49
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -27,14 +27,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `ltdv` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `identifiant` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `droits` int(11) NOT NULL,
-  `tentative` int(11) NOT NULL,
+  `droits` int(11) unsigned NOT NULL,
+  `tentative` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `identifiant` (`identifiant`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `ltdv`

@@ -94,6 +94,10 @@
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 red">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
+				<?php
+					include("edit.php");
+					include("error.php");
+				?>
 				<h1 id="services"  class="text-center title">Carte été 2015</h1>
 				<div class="space"></div>
 				<!-- Separator -->
@@ -124,7 +128,7 @@
 											<i class="fa fa-cutlery"></i>
 										</div>
 										<div class="media-body text-left">
-											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']); ?></h4>
+											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." : ".htmlentities($data['prix'])."€"; ?></h4>
 											<p><?php echo strip_tags($data['description'], '<br><strong><small>'); ?><p>								
 										</div>							
 									</div>								
@@ -149,7 +153,7 @@
 										</div>
 										<div class="media-body pull-right text-right">
 											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
-											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix'])."€"; ?><p>								
 										</div>							
 									</div>
 									<div class="clearfix"></div>									
@@ -184,7 +188,7 @@
 										</div>
 										<div class="media-body text-left">
 											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
-											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix'])."€"; ?><p>								
 										</div>							
 									</div>								
 								<?php
@@ -208,7 +212,7 @@
 										</div>
 										<div class="media-body pull-right text-right">
 											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
-											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix'])."€"; ?><p>								
 										</div>							
 									</div>
 									<div class="clearfix"></div>									
@@ -234,7 +238,7 @@
 								<div class="col-sm-4">
 									<div class="media">						
 										<div class="media-body text-center">
-											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']); ?></h4>
+											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix'])."€"; ?></h4>
 											<p><?php echo strip_tags($data['description'], '<br><strong><small>'); ?><p>
 										</div>							
 									</div>
@@ -269,7 +273,7 @@
 										</div>
 										<div class="media-body text-left">
 											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
-											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']."€"); ?><p>								
 										</div>							
 									</div>								
 								<?php
@@ -293,7 +297,7 @@
 										</div>
 										<div class="media-body pull-right text-right">
 											<h4 class="media-heading"><?php echo htmlentities($data['titre']); ?></h4>
-											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']); ?><p>								
+											<p><?php echo strip_tags($data['description'], '<br><strong><small>')." ".htmlentities($data['prix']."€"); ?><p>								
 										</div>							
 									</div>
 									<div class="clearfix"></div>									
@@ -326,7 +330,7 @@
 								<div class="col-sm-4">
 									<div class="media">						
 										<div class="media-body text-center center-block">
-											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']); ?></h4>
+											<h4 class="media-heading"><?php echo htmlentities($data['titre'])." ".htmlentities($data['prix']."€"); ?></h4>
 											<p><?php echo strip_tags($data['description'], '<br><strong><small>'); ?><p>								
 										</div>							
 									</div>
